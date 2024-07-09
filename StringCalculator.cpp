@@ -8,7 +8,7 @@ int StringCalculator::add(const std::string& input) {
         return 0;
     }
     std::string validatedInput = handleCustomDelimiter(input);
-    // validatedInput = normalizeDelimiters(validatedInput);
+    validatedInput = normalizeDelimiters(validatedInput);
     negativeNumbersCheck(validatedInput);
     return numbersSum(validatedInput);
 }
@@ -40,11 +40,11 @@ void StringCalculator::negativeNumbersCheck(const std::string& input) {
     }
 }
  
-// std::string StringCalculator::normalizeDelimiters(const std::string& input) {
-//     std::string result = input;
-//     std::replace(result.begin(), result.end(), '\n', ',');
-//     return result;
-// }
+std::string StringCalculator::normalizeDelimiters(const std::string& input) {
+    std::string result = input;
+    std::replace(result.begin(), result.end(), '\n', ',');
+    return result;
+}
 
 std::string StringCalculator::handleCustomDelimiter(const std::string& input) {
     if (input.substr(0, 2) == "//") {
